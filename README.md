@@ -9,6 +9,7 @@ Compile the example binaries with the included makefile. All of the examples fro
 
 ## Interfaces ##
 * header/Lists/ListInterface.hpp : Base List interface
+* header/Lists/LinkedListInterface.hpp : Base Linked List interface
 * header/Nodes/NodeInterface.hpp : Base Node interface
 * header/Nodes/SinglyLinkedNodeInterface.hpp : Singly-Linked Node interface
 
