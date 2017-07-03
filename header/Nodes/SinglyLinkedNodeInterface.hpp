@@ -20,20 +20,40 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
+ * @author      Steven Jimenez
+ * @copyright   2017 Steven Jimenez
+ * @license     MIT
  */
 
 #ifndef __SD__NODES__SINGLY_LINKED_NODE_INTERFACE__
 #define __SD__NODES__SINGLY_LINKED_NODE_INTERFACE__
 
-#include "NodeInterface.hpp"
+#include <Nodes/NodeInterface.hpp>
 
 namespace SD::Nodes {
+
+    /**
+     * @class   SinglyLinkedNodeInterface
+     * @brief   the interface to which all Singly Linked Nodes must ahdere
+     *
+     * This is an interface for a simple Singly Linked List's Node class. It
+     * exists to ensure that the Singly Linked Nodes are interchangeable.
+     */
     template<typename T>
     class SinglyLinkedNodeInterface : public NodeInterface<T>
     {
     public:
+        /**
+         * Gets the next node in the chain
+         * @return SinglyLinkedNode&
+         */
         NodeInterface<T>* getNextNode();
 
+        /**
+         * Sets the next node in the chain
+         * @param node Node to set as "next", or NULL to clear
+         */
         NodeInterface<T>& setNextNode(NodeInterface<T>* node);
     };
 }

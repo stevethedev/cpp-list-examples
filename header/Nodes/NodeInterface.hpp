@@ -20,16 +20,39 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
+ * @author      Steven Jimenez
+ * @copyright   2017 Steven Jimenez
+ * @license     MIT
  */
 
 #ifndef __SD__NODES__NODE_INTERFACE__
 #define __SD__NODES__NODE_INTERFACE__
 
 namespace SD::Nodes {
+    /**
+     * @class   NodeInterface
+     * @brief   The interface which all nodes must adhere
+     *
+     * Since templates cannot be implemented in a .cpp file, we are using the
+     * undefined functions as a way to ensure that this class can't be
+     * instantiated. This gives us the same functionality as an abstract class
+     * (interface) without forcing us to give up templates.
+     */
     template<typename T>
     class NodeInterface
     {
+        /**
+         * @brief   set the node's value
+         * @param   value   value to set
+         * @return  *self
+         */
         NodeInterface<T>& setValue(T value);
+
+        /**
+         * @brief   retrieve the node's value
+         * @return  contained value
+         */
         T getValue();
     };
 }

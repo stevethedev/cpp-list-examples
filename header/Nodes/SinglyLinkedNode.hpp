@@ -20,6 +20,10 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
+ * @author      Steven Jimenez
+ * @copyright   2017 Steven Jimenez
+ * @license     MIT
  */
 
 #ifndef __SD__NODES__SINGLY_LINKED_NODE__
@@ -29,6 +33,15 @@
 #include <Nodes/SinglyLinkedNodeInterface.hpp>
 
 namespace SD::Nodes {
+
+    /**
+     * @class   SinglyLinkedNode
+     * @brief   Implementation of a simple Singly Linked List's Node class
+     *
+     * This is an implementation of a simple Singly Linked List's Node class.
+     * This class is responsible for retrieving values (inherited from Node)
+     * and for tracking the next node in the chain.
+     */
     template<typename T>
     class SinglyLinkedNode :
         public SinglyLinkedNodeInterface<T>,
@@ -37,13 +50,18 @@ namespace SD::Nodes {
     public:
         /**
          * SinglyLinkedNode Constructor
-         * @param T value   Value to hold within the node
+         * @param value   Value to hold within the node
          */
         SinglyLinkedNode(T value) :
             Node<T>(value),
             nextNode(NULL)
         {
             // empty constructor
+        }
+
+        ~SinglyLinkedNode()
+        {
+            this->nextNode = NULL;
         }
 
         /**
@@ -57,7 +75,7 @@ namespace SD::Nodes {
 
         /**
          * Sets the next node in the chain
-         * @param SinglyLinkedNode* node
+         * @param node Node to set as "next", or NULL to clear
          */
         SinglyLinkedNode<T>& setNextNode(SinglyLinkedNode<T>* node)
         {
@@ -67,7 +85,7 @@ namespace SD::Nodes {
 
         /**
          * Retrieves the value contained within the node
-         * @return T
+         * @return value contained within node
          */
         T getValue()
         {
@@ -76,8 +94,8 @@ namespace SD::Nodes {
 
         /**
          * Sets the value contained within the node
-         * @param T value value to carry
-         * @return *this
+         * @param   value value to carry
+         * @return  *this
          */
         SinglyLinkedNode<T>& setValue(T value)
         {
@@ -86,6 +104,12 @@ namespace SD::Nodes {
         }
 
     protected:
+        /**
+         * @brief   the next node in the chain
+         *
+         * This is a pointer to the next node in the chain. If no such node
+         * exists, then this will be NULL.
+         */
        SinglyLinkedNode<T>* nextNode;
     };
 }

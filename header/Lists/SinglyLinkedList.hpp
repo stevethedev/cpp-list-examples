@@ -20,6 +20,10 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
+ * @author      Steven Jimenez
+ * @copyright   2017 Steven Jimenez
+ * @license     MIT
  */
 
 #ifndef __SD__LISTS__SINGLY_LINKED_LIST__
@@ -34,6 +38,15 @@ namespace SD::Lists {
 
     using SD::Nodes::SinglyLinkedNode;
 
+    /**
+     * @class   SinglyLinkedList
+     * @brief   Implementation of a simple Singly Linked List class
+     *
+     * This is an implementation of a simple Singly Linked List class. There
+     * are some optimization issues that make this class less-than-ideal for
+     * production-ready code, but these optimizations set us up for later
+     * discussions regarding how to analyze or optimize code.
+     */
     template<typename T>
     class SinglyLinkedList : ListInterface<T>
     {
@@ -46,12 +59,24 @@ namespace SD::Lists {
             // empty constructor
         }
 
+        ~SinglyLinkedList()
+        {
+            // erase all of our nodes to prevent memory leaks
+            SinglyLinkedNode<T>* node = this->headNode;
+            SinglyLinkedNode<T>* nextNode;
+            while (node) {
+                nextNode = node->getNextNode();
+                delete node;
+                node = nextNode;
+            }
+        }
+
         /**
          * Inserts a new value at the requested index. If no index is provided, then
          * assumes that the value should be inserted at the end of the data
          * structure.
          *
-         * @param  T    value
+         * @param  value
          *
          * @return *this
          */
@@ -74,8 +99,8 @@ namespace SD::Lists {
          * assumes that the value should be inserted at the end of the data
          * structure.
          *
-         * @param  T     value
-         * @param  uint= index
+         * @param  value
+         * @param  index
          *
          * @return *this
          */
@@ -99,8 +124,8 @@ namespace SD::Lists {
         /**
          * Retrieves a value from the identified index
          *
-         * @param  uint  index
-         * @return T    value stored at the index
+         * @param  index
+         * @return value stored at the index
          */
         T get(unsigned int index)
         {
@@ -110,8 +135,8 @@ namespace SD::Lists {
         /**
          * Updates a value at the identified index
          *
-         * @param  uint  index
-         * @param  T     value
+         * @param  index
+         * @param  value
          *
          * @return *this
          */
@@ -124,8 +149,8 @@ namespace SD::Lists {
         /**
          * Removes "count" nodes, starting from the identified index
          *
-         * @param  uint      index
-         * @param  uint=1    count
+         * @param  index
+         * @param  count
          *
          * @return *this
          */
@@ -144,7 +169,7 @@ namespace SD::Lists {
         /**
          * Counts the number of nodes in the linked list
          *
-         * @return uint
+         * @return  number ofnodes in the linked list
          */
         unsigned int count()
         {
@@ -161,8 +186,8 @@ namespace SD::Lists {
         /**
          * Retrieves the node at the identified index
          *
-         * @param  uint index
-         * @return SinglyLinkedNodeInterface&
+         * @param  index
+         * @return node at the identified index
          */
         SinglyLinkedNode<T>& getNode(unsigned int index)
         {
@@ -180,7 +205,7 @@ namespace SD::Lists {
         /**
          * Retrieves the last node in the structure
          *
-         * @return SinglyLinkedNodeInterface&
+         * @return node at the end of the chain (or NULL if it doesn't exist)
          */
         SinglyLinkedNode<T>& getLastNode()
         {

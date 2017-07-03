@@ -20,6 +20,10 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
+ * @author      Steven Jimenez
+ * @copyright   2017 Steven Jimenez
+ * @license     MIT
  */
 
 #ifndef __SD__NODES__NODE__
@@ -28,18 +32,37 @@
 #include <Nodes/NodeInterface.hpp>
 
 namespace SD::Nodes {
+    /**
+     * @class   Node
+     * @brief   Basic Linked List node
+     *
+     * The Linked List node doesn't do much beyond carry a value, but it serves
+     * as the base for all other node types.
+     */
     template<typename T>
     class Node : public NodeInterface<T>
     {
     public:
+        /**
+         * Constructor initializes the value of the node
+         * @param value [description]
+         */
         Node(T value) : value(value)
         {
             // empty constructor
         }
 
         /**
+         * Destructor should clean up memory
+         */
+        ~Node()
+        {
+            // nothing to clean up
+        }
+
+        /**
          * Retrieves the value contained within the node
-         * @return T
+         * @return node's value
          */
         T getValue()
         {
@@ -48,7 +71,7 @@ namespace SD::Nodes {
 
         /**
          * Sets the value contained within the node
-         * @param T value value to carry
+         * @param   value value to carry
          * @return *this
          */
         Node<T>& setValue(T value)
