@@ -1,6 +1,12 @@
 # C++ List Examples #
 Example Lists, implemented in C++ by Steve the Dev
 
+## Examples ##
+* examples/sl-list.cpp : Hello World example with the Singly Linked List
+
+## Example Binaries ##
+Compile the example binaries with the included makefile. All of the examples from the ```examples/``` directory get compiled into the ```bin/``` directory under the same name.
+
 ## Interfaces ##
 * header/Lists/ListInterface.hpp : Base List interface
 * header/Nodes/NodeInterface.hpp : Base Node interface
