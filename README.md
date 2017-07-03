@@ -18,3 +18,6 @@ Compile the example binaries with the included makefile. All of the examples fro
 ## Nodes ##
 * header/Nodes/Node.hpp : Base Node implementation
 * header/Nodes/SinglyLinkedNode.hpp : Singly Linked Node implementation
+
+# Related Entries #
+[Steve the Dev: Implementing the Singly Linked List](https://www.stevethedev.com/blog/programming/implementing-singly-linked-list)
