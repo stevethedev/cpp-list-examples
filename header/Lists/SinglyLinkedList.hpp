@@ -31,7 +31,7 @@
 
 #include <stdexcept>
 
-#include <Lists/ListInterface.hpp>
+#include <Lists/LinkedListInterface.hpp>
 #include <Nodes/SinglyLinkedNode.hpp>
 
 namespace SD::Lists {
@@ -48,7 +48,7 @@ namespace SD::Lists {
      * discussions regarding how to analyze or optimize code.
      */
     template<typename T>
-    class SinglyLinkedList : ListInterface<T>
+    class SinglyLinkedList : LinkedListInterface<T>
     {
     public:
         /**
@@ -87,7 +87,7 @@ namespace SD::Lists {
             }
 
             SinglyLinkedNode<T>& lastNode = this->getLastNode();
-            SinglyLinkedNode<T>* node = new SinglyLinkedNode<T>(value);
+            SinglyLinkedNode<T>* node = &this->createNode(value);
 
             lastNode.setNextNode(node);
 
@@ -106,7 +106,7 @@ namespace SD::Lists {
          */
         SinglyLinkedList<T>& insert(T value, unsigned int index)
         {
-            SinglyLinkedNode<T>* node = new SinglyLinkedNode<T>(value);
+            SinglyLinkedNode<T>* node = &this->createNode(value);
 
             if (0 == index) {
                 node->setNextNode(this->headNode);
@@ -184,7 +184,7 @@ namespace SD::Lists {
 
     protected:
         /**
-         * Retrieves the node at the identified index
+         * Retrieves the node at the identified index and returns a reference
          *
          * @param  index
          * @return node at the identified index
@@ -199,6 +199,18 @@ namespace SD::Lists {
                 }
             }
 
+            return *node;
+        }
+
+        /**
+         * Creates a new node with the given value, and returns a reference
+         *
+         * @param   value   value of the node
+         * @return  a newly created node
+         */
+        SinglyLinkedNode<T>& createNode(T value)
+        {
+            SinglyLinkedNode<T>* node = new SinglyLinkedNode<T>(value);
             return *node;
         }
 

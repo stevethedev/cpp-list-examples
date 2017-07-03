@@ -28,6 +28,9 @@ CXXFLAGS=-g
 LDFLAGS=-g
 LDLIBS=
 
+clean:
+	$(call rm,bin/*)
+
 all:
 	$(call mkdir,obj)
 	$(call mkdir,bin)
