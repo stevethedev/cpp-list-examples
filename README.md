@@ -2,6 +2,7 @@
 Example Lists, implemented in C++ by Steve the Dev
 
 ## Examples ##
+* examples/arr-list.cpp : Hello World example with the Array List
 * examples/sl-list.cpp : Hello World example with the Singly Linked List
 
 ## Example Binaries ##
@@ -12,9 +13,11 @@ Compile the example binaries with the included makefile. All of the examples fro
 * header/Lists/LinkedListInterface.hpp : Base Linked List interface
 * header/Nodes/NodeInterface.hpp : Base Node interface
 * header/Nodes/SinglyLinkedNodeInterface.hpp : Singly-Linked Node interface
+* header/Lists/ArrayListInterface.hpp : Array List Interface
 
 ## Lists ##
 * header/Lists/SinglyLinkedList.hpp : Singly-Linked List
+* header/Lists/ArrayList.hpp : Array List
 
 ## Nodes ##
 * header/Nodes/Node.hpp : Base Node implementation
