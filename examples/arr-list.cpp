@@ -26,41 +26,18 @@
  * @license     MIT
  */
 
-#ifndef __SD__LISTS__LINKED_LIST_INTERFACE__
-#define __SD__LISTS__LINKED_LIST_INTERFACE__
+#include <iostream>
 
-#include <Nodes/Node.hpp>
+#include <Lists/ArrayList.hpp>
 
-namespace SD::Lists {
+using SD::Lists::ArrayList;
 
-    using SD::Nodes::Node;
-
-    /**
-     * @class   LinkedListInterface
-     * @brief   The basic list interface that all linked lists will inherit from.
-     *
-     * The LinkedListInterface class provides a contract for how lists should
-     * behave. This includes the creation, reading, updating, and deletion
-     * of nodes.
-     */
-    template<typename T>
-    class LinkedListInterface
-    {
-    protected:
-        /**
-         * @brief   Get a node from the chain
-         * @param   index   index of the node to retrieve
-         * @return  the node at the given index
-         */
-        Node<T>& getNode(unsigned int index);
-
-        /**
-         * @brief   Creates a new node
-         * @param   value   value of the node
-         * @return  a newly created node
-         */
-        Node<T>& createNode(T value);
-    };
+int main(int argc, char const *argv[]) {
+    ArrayList<std::string> list;
+    list.insert("world").insert("hello", 0);
+    std::cout << list.get(0) << " " << list.get(1) << "!" << std::endl;
+    std::cout << list.remove(1).get(0) << "!" << std::endl;
+    std::cout << "count: " << list.count() << std::endl;
+    std::cout << list.set(0, "goodbye!").get(0) << "!" << std::endl;
+    return 0;
 }
-
-#endif

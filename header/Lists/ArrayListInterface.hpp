@@ -26,40 +26,23 @@
  * @license     MIT
  */
 
-#ifndef __SD__LISTS__LINKED_LIST_INTERFACE__
-#define __SD__LISTS__LINKED_LIST_INTERFACE__
-
-#include <Nodes/Node.hpp>
+#ifndef __SD__LISTS__ARRAY_LIST_INTERFACE__
+#define __SD__LISTS__ARRAY_LIST_INTERFACE__
 
 namespace SD::Lists {
 
-    using SD::Nodes::Node;
-
     /**
-     * @class   LinkedListInterface
-     * @brief   The basic list interface that all linked lists will inherit from.
+     * @class   ArrayListInterface
+     * @brief   The basic list interface that all array lists will inherit from.
      *
-     * The LinkedListInterface class provides a contract for how lists should
+     * The ArrayListInterface class provides a contract for how lists should
      * behave. This includes the creation, reading, updating, and deletion
      * of nodes.
      */
     template<typename T>
-    class LinkedListInterface
+    class ArrayListInterface
     {
-    protected:
-        /**
-         * @brief   Get a node from the chain
-         * @param   index   index of the node to retrieve
-         * @return  the node at the given index
-         */
-        Node<T>& getNode(unsigned int index);
-
-        /**
-         * @brief   Creates a new node
-         * @param   value   value of the node
-         * @return  a newly created node
-         */
-        Node<T>& createNode(T value);
+        // deliberately empty
     };
 }
 

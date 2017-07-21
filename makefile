@@ -1,7 +1,11 @@
 sl-list_SRC=examples/sl-list.cpp
+arr-list_SRC=examples/arr-list.cpp
 
 sl-list: TARGET=sl-list
 sl-list: all
+
+arr-list: TARGET=arr-list
+arr-list: all
 
 ifeq ($(shell echo "check_quotes"),"check_quotes")
 	WINDOWS=yes
