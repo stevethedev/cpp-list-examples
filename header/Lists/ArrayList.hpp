@@ -30,6 +30,7 @@
 #define __SD__LISTS__ARRAY_LIST__
 
 #include <stdexcept>
+#include <iostream>
 
 #include <Lists/ArrayListInterface.hpp>
 
@@ -50,7 +51,7 @@ namespace SD::Lists {
         /**
          * Creates an array list data structure
          */
-        ArrayList() : logicalLength(0), physicalLength(16)
+        ArrayList() : logicalLength(0), physicalLength(1)
         {
             this->array = new T[this->physicalLength];
         }
@@ -93,7 +94,7 @@ namespace SD::Lists {
                 throw new std::out_of_range("Expected index to be within length of list");
             }
 
-            if (1 + this->logicalLength > this->physicalLength) {
+            if (1 + this->logicalLength >= this->physicalLength) {
                 this->extendArray();
             }
 
@@ -174,8 +175,11 @@ namespace SD::Lists {
         }
 
     protected:
+        // the wrapped element
         T* array;
+        // the length of the array, as far as the external code is concerned
         unsigned int logicalLength;
+        // the length of the array, as far as the runtime execution is concerned
         unsigned int physicalLength;
 
         /**
