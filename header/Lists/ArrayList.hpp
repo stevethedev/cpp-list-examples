@@ -57,7 +57,7 @@ namespace SD::Lists {
 
         ~ArrayList()
         {
-            // empty constructor
+            // empty destructor
         }
 
         /**
