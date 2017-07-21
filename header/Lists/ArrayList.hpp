@@ -55,6 +55,9 @@ namespace SD::Lists {
             this->array = new T[this->physicalLength];
         }
 
+        /**
+         * Tears down the array list data structure
+         */
         ~ArrayList()
         {
             // empty destructor
