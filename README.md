@@ -25,3 +25,4 @@ Compile the example binaries with the included makefile. All of the examples fro
 
 # Related Entries #
 [Steve the Dev: Implementing the Singly Linked List](https://www.stevethedev.com/blog/programming/implementing-singly-linked-list)
+[Array Lists: A Less Awful Way to Handle Arrays](https://www.stevethedev.com/blog/computer-science/array-lists-less-awful-way-handle-arrays)
